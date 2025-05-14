@@ -1,0 +1,47 @@
+-- Crear nuestra base de datos
+CREATE DATABASE IF NOT EXISTS academia;
+
+-- Usar la base de datos
+USE academia;
+
+-- Crear la tabla de estudiantes
+CREATE TABLE IF NOT EXISTS estudiantes (
+    id_estudiante bigint AUTO_INCREMENT PRIMARY KEY,
+    numero_documento VARCHAR(20) NOT NULL UNIQUE,
+    nombre VARCHAR(255) NOT NULL,
+    apellido VARCHAR(255) NOT NULL,
+    fecha_nacimiento DATE NOT NULL,
+    email VARCHAR(100) NOT NULL UNIQUE,
+    telefono VARCHAR(20) NOT NULL
+);
+
+-- Crear la talba de docentes
+CREATE TABLE IF NOT EXISTS docentes (
+    id_docente bigint AUTO_INCREMENT PRIMARY KEY,
+    numero_documento VARCHAR(20) NOT NULL UNIQUE,
+    nombre VARCHAR(255) NOT NULL,
+    apellido VARCHAR(255) NOT NULL,
+    email VARCHAR(100) NOT NULL UNIQUE,
+    telefono VARCHAR(20) NOT NULL,
+    especialidad VARCHAR(100) NOT NULL
+);
+
+-- Crear la tabla de cursos
+CREATE TABLE IF NOT EXISTS cursos (
+    id_curso bigint AUTO_INCREMENT PRIMARY KEY,
+    nombre_curso VARCHAR(255) NOT NULL,
+    descripcion TEXT NOT NULL,
+    creditos INT NOT NULL,
+    id_docente bigint NOT NULL,
+    FOREIGN KEY (id_docente) REFERENCES docentes(id_docente)
+);
+
+-- Crear la tabla de inscripciones
+CREATE TABLE IF NOT EXISTS inscripciones (
+    id_inscripcion bigint AUTO_INCREMENT PRIMARY KEY,
+    id_estudiante bigint NOT NULL,
+    id_curso bigint NOT NULL,
+    fecha_inscripcion DATE NOT NULL,
+    FOREIGN KEY (id_estudiante) REFERENCES estudiantes(id_estudiante),
+    FOREIGN KEY (id_curso) REFERENCES cursos(id_curso)
+);
