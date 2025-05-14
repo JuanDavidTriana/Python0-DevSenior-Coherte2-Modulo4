@@ -1,18 +1,20 @@
+from prettytable import PrettyTable
+
 def mostrar_estudiante(estudiante):
     """Mostrar los datos de un estudiante."""
-    print("===================================")
-    print("Número de documento:", estudiante[1])
-    print("Nombre:", estudiante[2])
-    print("Apellido:", estudiante[3])
-    print("Fecha de nacimiento:", estudiante[4])
-    print("Email:", estudiante[5])
-    print("Teléfono:", estudiante[6])
-    print("===================================")
+    tabla = PrettyTable()
+    tabla.field_names = ["Número de documento", "Nombre", "Apellido", "Fecha de nacimiento", "Email", "Teléfono"]
+    tabla.add_row([estudiante[1], estudiante[2], estudiante[3], estudiante[4], estudiante[5], estudiante[6]])
+    print(tabla)
+
     
 
 def mostrar_estudiantes(estudiantes):
     """Mostrar la lista de estudiantes."""
-    print("Lista de estudiantes:")
+    tabla = PrettyTable()
+    tabla.field_names = ["Número de documento", "Nombre", "Apellido", "Fecha de nacimiento", "Email", "Teléfono"]
     for estudiante in estudiantes:
-        mostrar_estudiante(estudiante)
-    print("===================================")
+        tabla.add_row([estudiante[1], estudiante[2], estudiante[3], estudiante[4], estudiante[5], estudiante[6]])
+    print(tabla)
+
+
