@@ -56,8 +56,20 @@ FROM cursos c
 JOIN docentes d ON c.id_docente = d.id_docente;
 
 -- consulta de cursos que dicta un docente
-SELECT c.nombre_curso, c.descripcion, c.creditos, d.nombre AS nombre_docenente, d.apellido as apellido_docente  
+SELECT c.nombre_curso, c.descripcion, c.creditos, d.nombre, d.apellido  
 FROM cursos c
 JOIN docentes d ON c.id_docente = d.id_docente
 WHERE d.numero_documento = '456789123';
 
+-- Consulta de los estudiantes inscritos en un curso
+SELECT i.id_inscripcion, e.numero_documento, e.nombre, e.apellido, c.id_curso, c.nombre_curso, i.fecha_inscripcion
+FROM inscripciones i
+JOIN estudiantes e ON i.id_estudiante = e.id_estudiante
+JOIN cursos c ON i.id_curso = c.id_curso;
+
+-- Consulta de los estudiantes inscritos en un curso
+SELECT i.id_inscripcion, e.numero_documento, e.nombre, e.apellido, c.id_curso, c.nombre_curso, i.fecha_inscripcion
+FROM inscripciones i
+JOIN estudiantes e ON i.id_estudiante = e.id_estudiante
+JOIN cursos c ON i.id_curso = c.id_curso
+WHERE e.numero_documento = '1234567890';

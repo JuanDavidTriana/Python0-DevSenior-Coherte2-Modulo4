@@ -1,6 +1,7 @@
 from controller import estudiantesController
 from controller import docentesController
 from controller import cursosController
+from controller import inscripcionesController
 
 def menuGeneral():
     while True:
@@ -8,7 +9,8 @@ def menuGeneral():
         print("1. Menú de Estudiantes")
         print("2. Menú de Docentes")
         print("3. Menú de Cursos")
-        print("4. Salir")
+        print("4. Menú de Inscripciones")
+        print("5. Salir")
         opcion = input("Seleccione una opción: ")
 
         if opcion == "1":
@@ -18,6 +20,8 @@ def menuGeneral():
         elif opcion == "3":
             menuCursos()
         elif opcion == "4":
+            menuIncripciones()
+        elif opcion == "5":
             print("Saliendo del menú general.")
             break
        
@@ -126,6 +130,21 @@ def menuCursos():
         elif opcion == "6":
             print("Saliendo del menú de cursos.")
             break
+
+def menuIncripciones():
+    while True:
+        print("\n--- Menú de Inscripciones ---")
+        print("1. Ver Inscripciones")
+        print("2. Salir")
+        opcion = input("Seleccione una opción: ")
+
+        if opcion == "1":
+            inscripcionesController.mostrar_inscripciones()
+        elif opcion == "2":
+            print("Saliendo del menú de inscripciones.")
+            break
+        else:
+            print("Opción no válida. Intente de nuevo.")
 
 if __name__ == "__main__":
     menuGeneral()
