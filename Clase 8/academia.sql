@@ -45,3 +45,7 @@ CREATE TABLE IF NOT EXISTS inscripciones (
     FOREIGN KEY (id_estudiante) REFERENCES estudiantes(id_estudiante),
     FOREIGN KEY (id_curso) REFERENCES cursos(id_curso)
 );
+
+-- Insertar datos en la tabla de estudiantes
+INSERT INTO estudiantes (numero_documento, nombre, apellido, fecha_nacimiento, email, telefono) 
+VALUES ('1234567890', 'Juan', 'Pérez', '1990-01-15', 'l@example.com', '1234567890');

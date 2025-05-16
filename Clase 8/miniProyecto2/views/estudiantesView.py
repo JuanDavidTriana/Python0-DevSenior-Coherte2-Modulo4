@@ -7,8 +7,6 @@ def mostrar_estudiante(estudiante):
     tabla.add_row([estudiante[1], estudiante[2], estudiante[3], estudiante[4], estudiante[5], estudiante[6]])
     print(tabla)
 
-    
-
 def mostrar_estudiantes(estudiantes):
     """Mostrar la lista de estudiantes."""
     tabla = PrettyTable()
