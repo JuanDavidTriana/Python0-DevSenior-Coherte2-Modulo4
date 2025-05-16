@@ -1,12 +1,14 @@
 from controller import estudiantesController
 from controller import docentesController
+from controller import cursosController
 
 def menuGeneral():
     while True:
         print("\n--- Menú General ---")
         print("1. Menú de Estudiantes")
         print("2. Menú de Docentes")
-        print("3. Salir")
+        print("3. Menú de Cursos")
+        print("4. Salir")
         opcion = input("Seleccione una opción: ")
 
         if opcion == "1":
@@ -14,6 +16,8 @@ def menuGeneral():
         elif opcion == "2":
             menuDocente()
         elif opcion == "3":
+            menuCursos()
+        elif opcion == "4":
             print("Saliendo del menú general.")
             break
        
@@ -104,6 +108,24 @@ def menuDocente():
             break
         else:
             print("Opción no válida. Intente de nuevo.")
+
+def menuCursos():
+    while True:
+        print("\n--- Menú de Cursos ---")
+        print("1. Ver Cursos")
+        print("2. Ver Cursos por Docente")
+        print("6. Salir")
+        opcion = input("Seleccione una opcion: ")
+
+        if opcion == "1":
+            cursosController.mostrar_cursos()
+        elif opcion == "2":
+            id_docente = input("Ingrese el número de documento del docente: ")
+            cursosController.mostrar_curso_por_docente(id_docente)
+
+        elif opcion == "6":
+            print("Saliendo del menú de cursos.")
+            break
 
 if __name__ == "__main__":
     menuGeneral()

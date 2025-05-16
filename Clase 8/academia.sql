@@ -49,3 +49,15 @@ CREATE TABLE IF NOT EXISTS inscripciones (
 -- Insertar datos en la tabla de estudiantes
 INSERT INTO estudiantes (numero_documento, nombre, apellido, fecha_nacimiento, email, telefono) 
 VALUES ('1234567890', 'Juan', 'Pérez', '1990-01-15', 'l@example.com', '1234567890');
+
+-- Consulta de cursos con nombre de docente
+SELECT c.id_curso, c.nombre_curso, c.descripcion, c.creditos, d.nombre AS nombre_docenente, d.apellido as apellido_docente  
+FROM cursos c
+JOIN docentes d ON c.id_docente = d.id_docente;
+
+-- consulta de cursos que dicta un docente
+SELECT c.nombre_curso, c.descripcion, c.creditos, d.nombre AS nombre_docenente, d.apellido as apellido_docente  
+FROM cursos c
+JOIN docentes d ON c.id_docente = d.id_docente
+WHERE d.numero_documento = '456789123';
+
